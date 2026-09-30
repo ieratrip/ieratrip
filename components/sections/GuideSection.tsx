@@ -83,8 +83,8 @@ export function GuideSection({ guideCategories, ui }: Props) {
   const featuredImages = useMemo(() => {
     if (!selectedItem) return [];
     const fallbackImage =
-      selectedItem.item.image ??
-      imageByCategoryId[selectedItem.categoryId] ??
+      selectedItem.item.image ||
+      imageByCategoryId[selectedItem.categoryId] ||
       activeCategory.image;
     return selectedItem.item.images?.length ? selectedItem.item.images : [fallbackImage];
   }, [activeCategory.image, selectedItem]);
@@ -159,12 +159,12 @@ export function GuideSection({ guideCategories, ui }: Props) {
 
               <div className="guide-items-grid">
                 {activeGroup?.items.map((item, index) => {
-                  const hasVisualCard =
-                    (activeCategory.id === "beaches" || activeCategory.id === "areas") &&
-                    Boolean(item.image);
+                  const cardImage =
+                    item.image || imageByCategoryId[activeCategory.id] || activeCategory.image;
+                  const hasVisualCard = Boolean(cardImage);
                   const cardStyle = hasVisualCard
                     ? ({
-                        "--guide-card-image": `url("${item.image}")`,
+                        "--guide-card-image": `url("${cardImage}")`,
                       } as CSSProperties)
                     : undefined;
 

@@ -842,6 +842,12 @@ const guideDetails: Record<
     image:
       "https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=1200&q=80",
   },
+  "χρήσιμα τηλέφωνα": {
+    title: "Useful phone numbers",
+    description:
+      "Some useful phone numbers for your holidays in Ierapetra: Ierapetra Port Authority: 2842089996. Municipality of Ierapetra: 2842340300. Ierapetra Police Station: 2842090160. Ierapetra Fire Service: 2842020960. Ierapetra General Hospital: 2842340222.",
+    image: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?w=1200&q=80",
+  },
   μύρτος: {
     title: "Myrtos",
     description:
@@ -867,7 +873,7 @@ const guideDetails: Record<
     title: "Monastiraki",
     description:
       "Monastiraki is a small, quiet settlement near Pacheia Ammos, built on the slopes of the Thrypti mountain range with views over the Gulf of Mirabello. Its name is linked to the existence of an old monastery in the area. The landscape is particularly charming, with lush vegetation, running water and a sense of seclusion that makes it ideal for those seeking peace and contact with nature. Although today inhabited by only a few permanent residents, it retains the authenticity and traditional atmosphere of the Cretan countryside.",
-    image: "/images/μοναστηρακι 1.jpg",
+    image: "/images/μοναστηρακι 2.jpg",
     images: [
       "/images/μοναστηρακι 1.jpg",
       "/images/μοναστηρακι 2.jpg",
@@ -961,11 +967,89 @@ const guideDetails: Record<
     image:
       "",
   },
+  μύθοι: {
+    title: "Mythoi",
+    description:
+      "In the heart of lush nature, Mythoi of Ierapetra invites you to discover the authentic side of Crete. Traditional houses, stone alleys, cool waters and rich vegetation create a magical setting for walks and exploration. A special destination for those seeking peace, natural beauty and authentic Cretan hospitality — away from the crowds, close to the heart of Crete.",
+    image: "/images/ΜΥΘΟΙ 2.jpg",
+    images: [
+      "/images/ΜΥΘΟΙ 1.jpg",
+      "/images/ΜΥΘΟΙ 2.jpg",
+      "/images/ΜΥΘΟΙ 3.jpg",
+      "/images/ΜΥΘΟΙ 4.jpg",
+      "/images/ΜΥΘΟΙ 5.jpg",
+    ],
+  },
+  χριστός: {
+    title: "Christos",
+    description:
+      "Nestled in the mountains near Ierapetra, Christos is a picturesque traditional village offering authentic Cretan calm away from the crowds. It is an ideal base for nature lovers, just a breath from the magical pine forest of Selakano. It is a perfect destination for enjoying the coolness of nature and genuine hospitality with raki in the village cafés.",
+    image: "/images/χρηστος 2.jpg",
+    images: [
+      "/images/χρηστος 1.jpg",
+      "/images/χρηστος 2.jpg",
+      "/images/χρηστος 3.jpg",
+      "/images/χρηστος 4.jpg",
+      "/images/χρηστος 5.jpg",
+    ],
+  },
+  "άγιος ιωάννης": {
+    title: "Agios Ioannis",
+    description:
+      "Built on a slope with magical panoramic views of the Libyan Sea, Agios Ioannis is a beautiful traditional village of Ierapetra, known for its restored stone houses. It harmoniously combines the wild beauty of the mountain with proximity to the sea, and is famous for the stunning hiking trail leading to the Mylonas Waterfall. It is the ultimate destination for scenic alleys, calm and impressive natural landscapes.",
+    image: "/images/ΑΓΙΟΣ ΙΩΑΝΝΗΣ 2.jpg",
+    images: [
+      "/images/ΑΓΙΟΣ ΙΩΑΝΝΗΣ 1.jpg",
+      "/images/ΑΓΙΟΣ ΙΩΑΝΝΗΣ 2.jpg",
+      "/images/ΑΓΙΟΣ ΙΩΑΝΝΗΣ 3.jpg",
+      "/images/ΑΓΙΟΣ ΙΩΑΝΝΗΣ 4.jpg",
+    ],
+  },
+  κεντρί: {
+    title: "Kentri",
+    description:
+      "A short distance from Ierapetra, Kentri is a picturesque traditional village surrounded by endless olive groves. It is historically known for its strong pottery tradition and its beautiful, well-kept alleys. It is an excellent short escape for discovering the authentic character of the area and resting in its traditional cafés.",
+    image: "/images/κεντρι 2.jpg",
+    images: ["/images/κεντρι 2.jpg", "/images/κεντρι 3.jpg", "/images/κεντρι 4.jpg"],
+  },
+  ρίζα: {
+    title: "Riza",
+    description:
+      "Riza, built at the root of the mountain, combines authentic Cretan calm with powerful historical memory. In September 1943 it suffered Nazi atrocities with 45 executions, while neighbouring settlements were saved thanks to the brave intervention of local clergy. Today, the memorial at the Church of Timios Stavros and the ossuary where the victims' skulls are displayed make the village a special monument of heroism.",
+    image: "/images/ριζα 2.jpg",
+    images: ["/images/ριζα 2.jpg", "/images/ριζα 3.jpg"],
+  },
+  θρυπτή: {
+    title: "Thrypti",
+    description:
+      "Built high on the mountain range of the same name, Thrypti is a magical, secluded mountain village offering incomparable panoramic views across the entire isthmus of Ierapetra. Surrounded by pristine pine forests and a breath away from the imposing Ha Gorge, it is a paradise for hikers and off-road exploration lovers. It is an ideal destination for escaping into nature, enjoying the coolness and rugged charm of the Cretan mountains.",
+    image: "/images/ΘΡΥΠΤΗ 2.jpg",
+    images: [
+      "/images/ΘΡΥΠΤΗ 1.jpg",
+      "/images/ΘΡΥΠΤΗ 2.jpg",
+      "/images/ΘΡΥΠΤΗ 3.jpg",
+      "/images/ΘΡΥΠΤΗ 4.jpg",
+      "/images/ΘΡΥΠΤΗ 5.jpg",
+      "/images/ΘΡΥΠΤΗ 6.jpg",
+    ],
+  },
+  βασιλική: {
+    title: "Vasiliki",
+    description:
+      "Vasiliki is a quiet traditional village of great archaeological importance, as it hosts one of the most important Early Minoan settlements. The village, which gave its name to the famous style of Minoan pottery, overlooks the Ierapetra isthmus with beautiful views of the plain. It is an ideal stop for history lovers who want to combine the calm of the Cretan countryside with a dive into the beginnings of Minoan civilisation. Every summer the village also holds traditional Cretan festivals that promise entertainment until morning.",
+    image: "/images/βασιλικη 1.jpg",
+    images: [
+      "/images/βασιλικη 1.jpg",
+      "/images/βασιλικη 2.jpg",
+      "/images/βασιλικη 3.jpg",
+      "/images/βασιλικη 4.jpg",
+    ],
+  },
   ανατολή: {
     title: "Anatoli",
     description:
       "Anatoli is a beautiful mountain village of Ierapetra, built in a privileged position with a panoramic view over the Libyan Sea. The traditional houses, cobblestone lanes and stunning sunset give the village a distinctive atmosphere.",
-    image: "/images/ανατολη 1.jpg",
+    image: "/images/ανατολη 3.jpg",
     images: [
       "/images/ανατολη 1.jpg",
       "/images/ανατολη 2.jpg",
@@ -1018,6 +1102,12 @@ const guideDetails: Record<
     description:
       "Chrysi Island, also known as Gaidouronisi, is a small uninhabited island south of Ierapetra. Its golden beaches of shell fragments, blue-green waters and the largest cedar forest in Europe create the image of an exotic destination just about an hour from the city harbour. Bring a snorkel mask to explore the underwater world of the island.",
     image: "/images/χρυση 2.jpg",
+    images: [
+      "/images/χρυση 1.jpg",
+      "/images/χρυση 2.jpg",
+      "/images/ΧΡΥΣΗ 3.jpg",
+      "/images/ΧΡΥΣΗ 4.jpg",
+    ],
   },
   "καστρο καλε": {
     title: "Kales Fortress",
@@ -1025,6 +1115,12 @@ const guideDetails: Record<
     description:
       "Kales Fortress is a Venetian fortification from the 13th–14th century, built at the entrance to the old harbour to protect the city from sea raids. Today it is one of Ierapetra's most recognisable monuments and operates as a visitable archaeological site.",
     image: "/images/ΚΑΛΕ 1.jpg",
+    images: [
+      "/images/ΚΑΛΕ 1.jpg",
+      "/images/ΚΑΛΕ 2.jpg",
+      "/images/ΚΑΛΕ 3.jpg",
+      "/images/καλε 4.jpg",
+    ],
   },
   "σπιτι ναπολεοντα": {
     title: "Napoleon's House",
@@ -1068,14 +1164,33 @@ const guideDetails: Record<
   "αγιος γεωργιος": {
     title: "Churches",
     description:
-      "Churches: Agios Georgios, Agia Fotini, Timios Stavros, Afentis Christos, Panagia Eleousa, Panagia Faneromeni, Holy Monastery of Paplinou. Information: 6906063706.",
-    image: "/images/αγιος γεωργιος 1.jpg",
+      "Information about the churches can be found here: https://www.imis.gr",
+    image: "/images/χρηστος 2.jpg",
+  },
+  ναυμαχία: {
+    title: "Naumachia",
+    description:
+      "The historic Naumachia of Ierapetra is an important archaeological attraction, where imposing Roman walls testify to the glorious past and prosperity of ancient Ierapytna. This was the area where, during the Roman period, artificial basins were formed for impressive reenactments of naval battles. Today, a walk among these ancient remains offers visitors a fascinating journey through time, right beside the Libyan Sea.",
+    image: "/images/ΝΑΥΜΑΧΙΑ 1.jpg",
+    images: ["/images/ΝΑΥΜΑΧΙΑ 1.jpg", "/images/ΝΑΥΜΑΧΙΑ 2.jfif", "/images/ΝΑΥΜΑΧΙΑ 3.jfif"],
+  },
+  "παρκο μινος": {
+    title: "Minos Park",
+    description:
+      "Minos Park is an oasis of greenery and culture in the heart of Ierapetra, harmoniously blending recreation with local industrial history. Created on the site of a historic former olive mill, it is now full of life, hosting cultural events, exhibitions and outdoor activities. It is an ideal spot for a relaxing walk under the shade of the trees and a perfect stop to feel the modern pulse of the city.",
+    image: "/images/παρκο μινος 2.jpg",
+    images: [
+      "/images/παρκο μινος 1.jpg",
+      "/images/παρκο μινος 2.jpg",
+      "/images/παρκο μινος 3.jpg",
+      "/images/παρκο μινος 4.jpg",
+    ],
   },
   "γουρνια": {
     title: "Gournia Archaeological Site",
     description:
       "The archaeological site of Gournia is one of the most important Minoan settlements in Crete, dating from approximately 1900 to 1450 BC. It is a well-organised settlement with stone foundations, paved streets and storage areas.",
-    image: "/images/γουρνια 1.jpg",
+    image: "/images/γουρνια 3.jpg",
     images: [
       "/images/γουρνια 1.jpg",
       "/images/γουρνια 2.jpg",
@@ -1451,6 +1566,13 @@ export const guideCategories: GuideCategory[] = [
             "μοναστηράκι",
             "άνω σύμη",
             "μόχλος",
+            "μύθοι",
+            "χριστός",
+            "άγιος ιωάννης",
+            "κεντρί",
+            "ρίζα",
+            "θρυπτή",
+            "βασιλική",
             "μακρύ γυαλλός",
             "ανατολή",
             "καλαμαύκα",
@@ -1483,6 +1605,8 @@ export const guideCategories: GuideCategory[] = [
             "ψηφιακο μουσείο",
             "τζαμί",
             "αγιος γεωργιος",
+            "ναυμαχία",
+            "παρκο μινος",
             "γουρνια",
             "καβουσι(αρχαια ελια)",
             "καθολικη εκκλησια",
@@ -1524,30 +1648,34 @@ export const guideCategories: GuideCategory[] = [
     label: "Services",
     intro:
       "Practical options for health, shopping, beauty, fitness and getting around in and around the city.",
-    image: "/images/υπηρεσιες.jpg",
+    image: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?w=1200&q=80",
     groups: [
+      {
+        title: "Useful Phone Numbers",
+        items: createGuideItems(["χρήσιμα τηλέφωνα"], "services"),
+      },
       {
         title: "Health",
         items: createGuideItems(
-          ["υγεία", "νοσοκομείο", "φαρμακείο", "ιδιοτικοι ιατροι", "διαγνωστικο κεντρο", "κλινικη αιμμοκαθαρσης"],
+          ["νοσοκομείο", "φαρμακείο", "ιδιοτικοι ιατροι", "διαγνωστικο κεντρο", "κλινικη αιμμοκαθαρσης"],
           "health services",
         ),
       },
       {
         title: "Shopping",
-        items: createGuideItems(["ψώνια", "λαΪκή αγορα", "σουπερμαρκετ", "ρούχα", "souvenir"], "shopping"),
+        items: createGuideItems(["λαΪκή αγορα", "σουπερμαρκετ", "ρούχα", "souvenir"], "shopping"),
       },
       {
         title: "Wellness & Beauty",
-        items: createGuideItems(["περιποίηση", "κομμωτήρια", "μασαζ -σπα", "ινστιτούτο αισθητικής"], "wellness"),
+        items: createGuideItems(["κομμωτήρια", "μασαζ -σπα", "ινστιτούτο αισθητικής"], "wellness"),
       },
       {
         title: "Sport & Fitness",
-        items: createGuideItems(["άθληση", "γυμναστήρια", "yoga", "ανοιχτο γυμναστήριο"], "fitness"),
+        items: createGuideItems(["γυμναστήρια", "yoga", "ανοιχτο γυμναστήριο"], "fitness"),
       },
       {
         title: "Getting Around",
-        items: createGuideItems(["μετακινήσεις", "διαδρομές ΚΤΕΛ", "ΤΑΞΙ", "ενικοίαση αυτοκινήτων"], "transport"),
+        items: createGuideItems(["διαδρομές ΚΤΕΛ", "ΤΑΞΙ", "ενικοίαση αυτοκινήτων"], "transport"),
       },
     ],
   },

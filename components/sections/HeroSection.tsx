@@ -16,7 +16,7 @@ type Props = {
 
 const heroSlides = [
   "/images/hero.jpg",
-  "/images/μακρυ γιαλλος 6.jpg",
+  "/images/ΑΡΧΙΚΗ 2.jpg",
   "/images/ΧΡΥΣΗ 3.jpg",
   "/images/μακρυ γιαλλος 2.jpg",
   "/images/ΚΑΛΕ 1.jpg",

@@ -267,6 +267,11 @@ export const ui = {
   },
 };
 
+export type MapLocation = {
+  lat: number;
+  lng: number;
+};
+
 export type GuideItem = {
   name: string;
   hours?: string;
@@ -276,6 +281,9 @@ export type GuideItem = {
   description?: string;
   image?: string;
   images?: string[];
+  mapQuery?: string;
+  mapsUrl?: string;
+  location?: MapLocation;
 };
 
 export type GuideGroup = {
@@ -291,9 +299,146 @@ export type GuideCategory = {
   groups: GuideGroup[];
 };
 
+const guideLocations: Record<string, MapLocation> = {
+
+  waikiki: { lat: 35.0102, lng: 25.7445 },
+  plaz: { lat: 35.0096, lng: 25.7417 },
+  "απεριττον": { lat: 35.0092, lng: 25.7412 },
+  casablanca: { lat: 35.0107, lng: 25.7404 },
+  island: { lat: 35.0067, lng: 25.7388 },
+  chocolicious: { lat: 35.0063, lng: 25.7386 },
+  kermen: { lat: 35.0045, lng: 25.7374 },
+  boheme: { lat: 35.0092, lng: 25.7400 },
+  langolo: { lat: 35.0084, lng: 25.7400 },
+  kale: { lat: 35.0042, lng: 25.7361 },
+  searoco: { lat: 35.0050, lng: 25.7375 },
+  "vira potzi": { lat: 35.0044, lng: 25.7374 },
+  signiorino: { lat: 35.0067, lng: 25.7386 },
+  zorbas: { lat: 35.0090, lng: 25.7408 },
+  scisiliana: { lat: 35.0098, lng: 25.7426 },
+  pelagos: { lat: 35.0109, lng: 25.8375 },
+  plori: { lat: 35.0085, lng: 25.7537 },
+  napoleon: { lat: 35.0060, lng: 25.7384 },
+  gorgona: { lat: 35.0064, lng: 25.7387 },
+  levante: { lat: 35.0055, lng: 25.7380 },
+  mpompos: { lat: 35.0062, lng: 25.7383 },
+  koutouzos: { lat: 35.0248, lng: 25.7724 },
+  κοκοσ: { lat: 35.0045, lng: 25.7374 },
+  kapilio: { lat: 35.0098, lng: 25.7381 },
+  kouros: { lat: 35.0123, lng: 25.8322 },
+  konaki: { lat: 35.0056, lng: 25.7381 },
+  caravan: { lat: 35.0072, lng: 25.7391 },
+  peperment: { lat: 35.0088, lng: 25.7392 },
+  soho: { lat: 35.0075, lng: 25.7390 },
+  "blue parrrot": { lat: 35.0106, lng: 25.7404 },
+  saxo: { lat: 35.0076, lng: 25.7389 },
+  special: { lat: 35.0104, lng: 25.7424 },
+  "mama's": { lat: 35.0090, lng: 25.7334 },
+  "gyros tou kosmou": { lat: 35.0121, lng: 25.7420 },
+  veris: { lat: 35.0072, lng: 25.7389 },
+  crunchy: { lat: 35.0088, lng: 25.7356 },
+  alatorigani: { lat: 35.0131, lng: 25.7480 },
+  elephant: { lat: 35.0085, lng: 25.7374 },
+  "pick up": { lat: 35.0084, lng: 25.7378 },
+  "cup café": { lat: 35.0104, lng: 25.7404 },
+  balantinis: { lat: 35.0117, lng: 25.7413 },
+  mihelaros: { lat: 35.0112, lng: 25.7481 },
+  panino: { lat: 35.0079, lng: 25.7390 },
+  "paralia ierapetras": { lat: 35.0100, lng: 25.7477 },
+  "Άγιος Αντρέας": { lat: 35.0100, lng: 25.7477 },
+  "megali paralia": { lat: 35.0070, lng: 25.8259 },
+  "Κάκκος": { lat: 35.0129, lng: 25.8402 },
+  achlia: { lat: 35.0270, lng: 25.8916 },
+  "agia fotia": { lat: 35.0222, lng: 25.8761 },
+  agriomadra: { lat: 35.1313, lng: 25.8311 },
+  "cavo bianco": { lat: 35.0214, lng: 26.0150 },
+  tholos: { lat: 35.1529, lng: 25.8671 },
+  "paralia peristera": { lat: 34.9993, lng: 25.7863 },
+  "paralia livadi": { lat: 35.0054, lng: 25.7612 },
+  diaskari: { lat: 35.0293, lng: 25.9989 },
+  βουλισμα: { lat: 35.1268, lng: 25.7411 },
+  μύρτος: { lat: 35.0036, lng: 25.5833 },
+  "παχεία άμμος": { lat: 35.1099, lng: 25.8050 },
+  "άνω σύμη": { lat: 35.0470, lng: 25.4977 },
+  βασιλική: { lat: 35.0862, lng: 25.8059 },
+  καβούσι: { lat: 35.1216, lng: 25.8583 },
+  μόχλος: { lat: 35.1846, lng: 25.9045 },
+  "Κάτω χωριό": { lat: 35.0620, lng: 25.8014 },
+  "μακρύ γυαλλός": { lat: 35.0170, lng: 26.0100 },
+  καλαμαύκα: { lat: 35.0753, lng: 25.6576 },
+  "καστρο καλε": { lat: 35.0038, lng: 25.7374 },
+  "σπιτι ναπολεοντα": { lat: 35.0051, lng: 25.7373 },
+  μουσείο: { lat: 35.0083, lng: 25.7387 },
+  τζαμί: { lat: 35.0056, lng: 25.7358 },
+  "παρκο μινος": { lat: 35.0111, lng: 25.7452 },
+  γουρνια: { lat: 35.1094, lng: 25.7927 },
+  "καβουσι(αρχαια ελια)": { lat: 35.1152, lng: 25.8607 },
+  "φαράγγι σαρακίνας": { lat: 35.0483, lng: 25.5782 },
+  "καταράκτης μυλωνά": { lat: 35.0357, lng: 25.8449 },
+  chrissi: { lat: 34.8750, lng: 25.7100 },
+  κουφονήσι: { lat: 34.9333, lng: 26.1333 },
+  νοσοκομείο: { lat: 35.013354, lng: 25.741952 },
+  φαρμακείο: { lat: 35.009337, lng: 25.739801 },
+  "ιδιοτικοι ιατροι": { lat: 35.014634, lng: 25.740684 },
+  "διαγνωστικο κεντρο": { lat: 35.007710, lng: 25.737498 },
+  "κλινικη αιμμοκαθαρσης": { lat: 35.022567, lng: 25.751033 },
+  "λαΪκή αγορα": { lat: 35.012748, lng: 25.744610 },
+  σουπερμαρκετ: { lat: 35.011779, lng: 25.749750 },
+  ρούχα: { lat: 35.009780, lng: 25.741147 },
+  souvenir: { lat: 35.005598, lng: 25.737903 },
+  κομμωτήρια: { lat: 35.007087, lng: 25.735257 },
+  "μασαζ -σπα": { lat: 35.009983, lng: 25.742548 },
+  "ινστιτούτο αισθητικής": { lat: 35.009335, lng: 25.740877 },
+  γυμναστήρια: { lat: 35.008102, lng: 25.736724 },
+  yoga: { lat: 35.010535, lng: 25.739930 },
+  "διαδρομές ΚΤΕΛ": { lat: 35.012649, lng: 25.741645 },
+  ΤΑΞΙ: { lat: 35.008102, lng: 25.738923 },
+  "ενικοίαση αυτοκινήτων": { lat: 35.009989, lng: 25.751509 },
+  massati: { lat: 35.007422, lng: 25.739195 },
+  kleio: { lat: 35.006284, lng: 25.760524 },
+  koumpares: { lat: 35.008992, lng: 25.739665 },
+  odeio: { lat: 35.011107, lng: 25.741580 },
+  maestro: { lat: 35.008567, lng: 25.737261 },
+  sousouo: { lat: 35.007127, lng: 25.738969 },
+  alatsi: { lat: 35.009135, lng: 25.830432 },
+  kimeri: { lat: 35.012190, lng: 25.829070 },
+  ψαροπούλα: { lat: 35.010998, lng: 25.838026 },
+  thea: { lat: 35.019022, lng: 25.858983 },
+  stavrodoksari: { lat: 35.033714, lng: 25.942169 },
+  gspot: { lat: 35.009246, lng: 25.735601 },
+  μοναστηράκι: { lat: 35.080340, lng: 25.826367 },
+  μύθοι: { lat: 35.039377, lng: 25.574294 },
+  χριστός: { lat: 35.076883, lng: 25.572036 },
+  "άγιος ιωάννης": { lat: 35.052991, lng: 25.846941 },
+  κεντρί: { lat: 35.032940, lng: 25.753201 },
+  ανατολή: { lat: 35.045217, lng: 25.643844 },
+  μακρύλια: { lat: 35.062421, lng: 25.718851 },
+  μεσελέροι: { lat: 35.083600, lng: 25.712190 },
+  μάλλες: { lat: 35.080405, lng: 25.584941 },
+  σελακανο: { lat: 35.092403, lng: 25.545221 },
+  "ψηφιακο μουσείο": { lat: 35.007729, lng: 25.739196 },
+  "καθολικη εκκλησια": { lat: 35.011156, lng: 25.735317 },
+  "safari ierapetra": { lat: 35.011756, lng: 25.739514 },
+  "φαράγγι χα": { lat: 35.085252, lng: 25.834057 },
+  κατάδυση: { lat: 35.009645, lng: 25.741154 },
+  "θαλασσια σπορ": { lat: 35.008469, lng: 25.753362 },
+  ποδηλασία: { lat: 35.010480, lng: 25.742383 },
+  "takis shelter": { lat: 35.042244, lng: 25.725293 },
+
+};
+
 const guideDetails: Record<
   string,
-  { title?: string; hours?: string; description?: string; image?: string; images?: string[] }
+  {
+    title?: string;
+    hours?: string;
+    description?: string;
+    image?: string;
+    images?: string[];
+    mapQuery?: string;
+    mapsUrl?: string;
+    location?: MapLocation;
+  }
 > = {
   waikiki: {
     title: "Waikiki",
@@ -1407,18 +1552,29 @@ function createGuideItems(
   fallbackTag: string,
   options?: { priceRange?: string },
 ) {
-  return names.map((name) => ({
-    name: guideDetails[name]?.title ?? name,
-    hours: guideDetails[name]?.hours,
-    phone: shopContactDetails[name]?.phone,
-    address: shopContactDetails[name]?.address,
-    priceRange: options?.priceRange,
-    description:
-      guideDetails[name]?.description ??
-      `Μια πρόταση για ${fallbackTag} στην Ιεράπετρα, ιδανική για γρήγορη οργάνωση της επίσκεψης και εύκολη ανακάλυψη της περιοχής.`,
-    image: guideDetails[name]?.image,
-    images: guideDetails[name]?.images,
-  }));
+  return names.map((name) => {
+    const title = guideDetails[name]?.title ?? name;
+    const address = shopContactDetails[name]?.address;
+    const mapQuery = guideDetails[name]?.mapQuery ?? (address ? `${address}, Ιεράπετρα, Κρήτη, Ελλάδα` : `${title}, Ιεράπετρα, Κρήτη, Ελλάδα`);
+
+    return {
+      name: title,
+      hours: guideDetails[name]?.hours,
+      phone: shopContactDetails[name]?.phone,
+      address,
+      priceRange: options?.priceRange,
+      description:
+        guideDetails[name]?.description ??
+        `Μια πρόταση για ${fallbackTag} στην Ιεράπετρα, ιδανική για γρήγορη οργάνωση της επίσκεψης και εύκολη ανακάλυψη της περιοχής.`,
+      image: guideDetails[name]?.image,
+      images: guideDetails[name]?.images,
+      mapQuery,
+      mapsUrl:
+        guideDetails[name]?.mapsUrl ??
+        `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapQuery)}`,
+      location: guideDetails[name]?.location ?? guideLocations[name],
+    };
+  });
 }
 
 export const guideCategories: GuideCategory[] = [

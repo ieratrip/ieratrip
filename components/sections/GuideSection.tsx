@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { type CSSProperties, useEffect, useMemo, useState } from "react";
+import { type CSSProperties, useCallback, useEffect, useMemo, useState } from "react";
+import { GuideCategoryMap, buildMapsUrl } from "@/components/GuideCategoryMap";
 import { Reveal } from "@/components/Reveal";
 import type { GuideCategory } from "@/data/site";
 
@@ -78,6 +79,21 @@ export function GuideSection({ guideCategories, ui }: Props) {
     activeCategory?.groups.find((group) => group.title === activeGroupTitle) ??
     activeCategory?.groups[0];
 
+  const activeMapItems = useMemo(() => activeGroup?.items ?? [], [activeGroup]);
+
+  const openGuideItem = useCallback(
+    (item: GuideItem) => {
+      if (!activeCategory || !activeGroup) return;
+      setSelectedItem({
+        item,
+        categoryId: activeCategory.id,
+        categoryLabel: activeCategory.label,
+        groupTitle: activeGroup.title,
+      });
+    },
+    [activeCategory, activeGroup],
+  );
+
   const revealDelays: Array<"0" | "1" | "2" | "3"> = ["0", "1", "2", "3"];
 
   const featuredImages = useMemo(() => {
@@ -133,15 +149,12 @@ export function GuideSection({ guideCategories, ui }: Props) {
                   <h3>{activeCategory.label}</h3>
                   <p>{activeCategory.intro}</p>
                 </div>
-                <div className="guide-hero-image-wrap">
-                  <Image
-                    src={activeCategory.image}
-                    alt={activeCategory.label}
-                    fill
-                    unoptimized={isRemoteImage(activeCategory.image)}
-                    className="guide-hero-image"
-                  />
-                </div>
+                <GuideCategoryMap
+                  categoryId={activeCategory.id}
+                  categoryLabel={activeCategory.label}
+                  items={activeMapItems}
+                  onItemSelect={openGuideItem}
+                />
               </div>
 
               <div className="guide-subtabs" aria-label="Υποκατηγορίες">
@@ -177,14 +190,7 @@ export function GuideSection({ guideCategories, ui }: Props) {
                         type="button"
                         className={`guide-item-card ${hasVisualCard ? "guide-item-card-visual" : ""}`}
                         style={cardStyle}
-                        onClick={() =>
-                          setSelectedItem({
-                            item,
-                            categoryId: activeCategory.id,
-                            categoryLabel: activeCategory.label,
-                            groupTitle: activeGroup.title,
-                          })
-                        }
+                        onClick={() => openGuideItem(item)}
                       >
                         <span className="guide-item-meta">{activeGroup.title}</span>
                         <strong>{item.name}</strong>
@@ -283,7 +289,11 @@ export function GuideSection({ guideCategories, ui }: Props) {
               {selectedItem.item.address ? (
                 <div className="guide-modal-info">
                   <span>{ui.fields.address}</span>
-                  <strong>{selectedItem.item.address}</strong>
+                  <strong>
+                    <a href={buildMapsUrl(selectedItem.item)} target="_blank" rel="noreferrer">
+                      {selectedItem.item.address}
+                    </a>
+                  </strong>
                 </div>
               ) : null}
               {selectedItem.item.priceRange ? (

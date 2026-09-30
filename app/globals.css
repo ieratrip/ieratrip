@@ -1,3 +1,4 @@
+@import "leaflet/dist/leaflet.css";
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap");
 
 :root {
@@ -728,6 +729,89 @@ img {
   object-fit: cover;
 }
 
+.guide-category-map-shell {
+  position: relative;
+  min-height: 280px;
+  overflow: hidden;
+  background: #dfe5dc;
+  border: 1px solid rgba(74, 82, 64, 0.12);
+}
+
+.guide-category-map {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.guide-category-map .leaflet-container {
+  width: 100%;
+  height: 100%;
+  font: inherit;
+}
+
+.guide-map-status {
+  position: absolute;
+  right: 0.8rem;
+  bottom: 0.8rem;
+  z-index: 1;
+  padding: 0.35rem 0.55rem;
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--olive);
+  font-size: 0.68rem;
+  border: 1px solid rgba(74, 82, 64, 0.14);
+  box-shadow: 0 12px 30px rgba(10, 20, 28, 0.12);
+}
+
+.guide-map-marker {
+  background: transparent;
+  border: none;
+}
+
+.guide-map-marker span {
+  display: block;
+  width: 22px;
+  height: 22px;
+  background: var(--terracotta);
+  border: 3px solid white;
+  border-radius: 50% 50% 50% 0;
+  box-shadow: 0 8px 18px rgba(10, 20, 28, 0.35);
+  transform: rotate(-45deg);
+}
+
+.guide-map-popup {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 150px;
+  color: var(--sea);
+}
+
+.guide-map-popup-title {
+  border: none;
+  padding: 0;
+  background: transparent;
+  color: var(--sea);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 800;
+  text-align: left;
+}
+
+.guide-map-popup-title:hover {
+  color: var(--terracotta);
+}
+
+.guide-map-popup span {
+  color: var(--muted);
+  font-size: 0.74rem;
+}
+
+.guide-map-popup a {
+  color: var(--terracotta);
+  font-weight: 700;
+  text-decoration: none;
+}
+
 .guide-subtabs {
   margin-bottom: 1.5rem;
 }
@@ -1329,7 +1413,8 @@ img {
     padding: 1.5rem;
   }
 
-  .guide-hero-image-wrap {
+  .guide-hero-image-wrap,
+  .guide-category-map-shell {
     min-height: 220px;
   }
 

@@ -362,7 +362,6 @@ const guideLocations: Record<string, MapLocation> = {
   "άνω σύμη": { lat: 35.0470, lng: 25.4977 },
   βασιλική: { lat: 35.0862, lng: 25.8059 },
   καβούσι: { lat: 35.1216, lng: 25.8583 },
-  μόχλος: { lat: 35.1846, lng: 25.9045 },
   "Κάτω χωριό": { lat: 35.0620, lng: 25.8014 },
   "μακρύ γυαλλός": { lat: 35.0170, lng: 26.0100 },
   καλαμαύκα: { lat: 35.0753, lng: 25.6576 },
@@ -1105,13 +1104,6 @@ const guideDetails: Record<
       "/images/μαλλες 4.jpg",
     ],
   },
-  μόχλος: {
-    title: "Mochlos",
-    description:
-      "Mochlos is a picturesque seaside village with a tranquil landscape and traditional charm. Opposite its small harbour lies the namesake islet, an important Minoan archaeological site. The village is also known for its waterfront tavernas and authentic Cretan flavours.",
-    image:
-      "",
-  },
   μύθοι: {
     title: "Mythoi",
     description:
@@ -1721,7 +1713,6 @@ export const guideCategories: GuideCategory[] = [
             "παχεία άμμος",
             "μοναστηράκι",
             "άνω σύμη",
-            "μόχλος",
             "μύθοι",
             "χριστός",
             "άγιος ιωάννης",

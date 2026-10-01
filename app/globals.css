@@ -916,8 +916,12 @@ img {
   width: min(940px, 100%);
   display: grid;
   grid-template-columns: minmax(280px, 0.95fr) minmax(0, 1.05fr);
+  max-height: calc(100dvh - 3rem);
   background: var(--cream);
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
   box-shadow: 0 35px 120px rgba(0, 0, 0, 0.35);
 }
 
@@ -1404,6 +1408,17 @@ img {
     grid-template-columns: 1fr;
   }
 
+  .guide-modal-backdrop {
+    align-items: start;
+    padding: 0.75rem;
+    overflow-y: auto;
+  }
+
+  .guide-modal {
+    width: 100%;
+    max-height: calc(100dvh - 1.5rem);
+  }
+
   .guide-panel {
     padding: 1.2rem;
   }
@@ -1419,7 +1434,7 @@ img {
   }
 
   .guide-modal-media {
-    min-height: 260px;
+    min-height: clamp(180px, 34dvh, 260px);
   }
 
   .destination-card.destination-featured {

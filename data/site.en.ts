@@ -1037,7 +1037,7 @@ const guideDetails: Record<
     description:
       "Myrtos is a picturesque seaside village west of Ierapetra, just twenty minutes from the centre. It stands out for its tranquil atmosphere, clean beaches, narrow lanes with flowering courtyards and a lovely seafront promenade with small shops and views over the sea. It is an ideal destination for a day trip with an authentic Cretan feel.",
     image: "/images/μυρτος 2.jpg",
-    images: ["/images/μυρτος 2.jpg", "/images/μυρτος 3.jpg"],
+    images: ["/images/μυρτος 1.jpg","/images/μυρτος 2.jpg", "/images/μυρτος 3.jpg"],
   },
   "παχεία άμμος": {
     title: "Pacheia Ammos",

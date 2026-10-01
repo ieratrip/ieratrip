@@ -272,6 +272,14 @@ export type MapLocation = {
   lng: number;
 };
 
+export type GuideMapPoint = {
+  name: string;
+  address?: string;
+  mapQuery?: string;
+  mapsUrl?: string;
+  location: MapLocation;
+};
+
 export type GuideItem = {
   name: string;
   hours?: string;
@@ -284,6 +292,7 @@ export type GuideItem = {
   mapQuery?: string;
   mapsUrl?: string;
   location?: MapLocation;
+  mapLocations?: GuideMapPoint[];
 };
 
 export type GuideGroup = {
@@ -423,6 +432,9 @@ const guideLocations: Record<string, MapLocation> = {
   "θαλασσια σπορ": { lat: 35.008469, lng: 25.753362 },
   ποδηλασία: { lat: 35.010480, lng: 25.742383 },
   "takis shelter": { lat: 35.042244, lng: 25.725293 },
+  γιαννακος: { lat: 35.050478, lng: 25.676823 },
+  θρυπτή: { lat: 35.091260, lng: 25.863393 },
+  ναυμαχία: { lat: 35.006190, lng: 25.733103 },
 
 };
 
@@ -437,6 +449,7 @@ const guideDetails: Record<
     mapQuery?: string;
     mapsUrl?: string;
     location?: MapLocation;
+    mapLocations?: GuideMapPoint[];
   }
 > = {
   waikiki: {
@@ -991,6 +1004,33 @@ const guideDetails: Record<
     description:
       "Κάποια χρήσιμα τηλέφωνα για τις διακοπές σου στην Ιεράπετρα: Λιμεναρχείο Ιεράπετρας: 2842089996. Δήμος Ιεράπετρας: 2842340300. Αστυνομικό τμήμα Ιεράπετρας: 2842090160. Πυροσβεστική υπηρεσία Ιεράπετρας: 2842020960. Γενικό Νοσοκομείο Ιεράπετρας: 2842340222.",
     image: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?w=1200&q=80",
+    mapLocations: [
+      {
+        name: "Λιμεναρχείο Ιεράπετρας",
+        address: "Λιμεναρχείο Ιεράπετρας",
+        location: { lat: 35.006803, lng: 25.738889 },
+      },
+      {
+        name: "Δήμος Ιεράπετρας",
+        address: "Δημαρχείο Ιεράπετρας, Δημοκρατίας 31",
+        location: { lat: 35.008159, lng: 25.737704 },
+      },
+      {
+        name: "Αστυνομικό Τμήμα Ιεράπετρας",
+        address: "Μ. Κοθρή 5, Ιεράπετρα",
+        location: { lat: 35.008364, lng: 25.739572 },
+      },
+      {
+        name: "Πυροσβεστική Υπηρεσία Ιεράπετρας",
+        address: "Κεντρί, Ιεράπετρα",
+        location: { lat: 35.027627, lng: 25.751641 },
+      },
+      {
+        name: "Γενικό Νοσοκομείο Ιεράπετρας",
+        address: "Γενικό Νοσοκομείο Ιεράπετρας",
+        location: { lat: 35.013354, lng: 25.741952 },
+      },
+    ],
   },
   μύρτος: {
     title: "Μύρτος",
@@ -1565,6 +1605,7 @@ function createGuideItems(
         guideDetails[name]?.mapsUrl ??
         `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapQuery)}`,
       location: guideDetails[name]?.location ?? guideLocations[name],
+      mapLocations: guideDetails[name]?.mapLocations,
     };
   });
 }

@@ -5,12 +5,26 @@ import type { Map as LeafletMap, LayerGroup, LatLngExpression } from "leaflet";
 
 type MapLocation = { lat: number; lng: number };
 
+type MapPoint = {
+  name: string;
+  address?: string;
+  mapQuery?: string;
+  mapsUrl?: string;
+  location: MapLocation;
+};
+
 type MapItem = {
   name: string;
   address?: string;
   mapQuery?: string;
   mapsUrl?: string;
   location?: MapLocation;
+  mapLocations?: MapPoint[];
+};
+
+type MarkerItem = MapItem & {
+  markerName?: string;
+  parentItem?: MapItem;
 };
 
 type Props = {
@@ -39,18 +53,18 @@ function wait(ms: number) {
   return new Promise((resolve) => window.setTimeout(resolve, ms));
 }
 
-function buildQuery(item: MapItem) {
+function buildQuery(item: MarkerItem) {
   if (item.mapQuery) return item.mapQuery;
   if (item.address) return `${item.address}, Ιεράπετρα, Κρήτη, Ελλάδα`;
-  return `${item.name}, Ιεράπετρα, Κρήτη, Ελλάδα`;
+  return `${item.markerName ?? item.name}, Ιεράπετρα, Κρήτη, Ελλάδα`;
 }
 
-export function buildMapsUrl(item: MapItem) {
+export function buildMapsUrl(item: MarkerItem) {
   if (item.mapsUrl) return item.mapsUrl;
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(buildQuery(item))}`;
 }
 
-async function geocodeItem(item: MapItem, signal: AbortSignal): Promise<CachedLocation> {
+async function geocodeItem(item: MarkerItem, signal: AbortSignal): Promise<CachedLocation> {
   if (item.location) return item.location;
 
   const query = buildQuery(item);
@@ -80,15 +94,15 @@ async function geocodeItem(item: MapItem, signal: AbortSignal): Promise<CachedLo
   }
 }
 
-function makePopup(item: MapItem, onItemSelect?: (item: MapItem) => void) {
+function makePopup(item: MarkerItem, onItemSelect?: (item: MapItem) => void) {
   const popup = document.createElement("div");
   popup.className = "guide-map-popup";
 
   const title = document.createElement("button");
   title.type = "button";
   title.className = "guide-map-popup-title";
-  title.textContent = item.name;
-  title.addEventListener("click", () => onItemSelect?.(item));
+  title.textContent = item.markerName ?? item.name;
+  title.addEventListener("click", () => onItemSelect?.(item.parentItem ?? item));
   popup.appendChild(title);
 
   if (item.address) {
@@ -114,23 +128,33 @@ export function GuideCategoryMap({ categoryId, categoryLabel, items, onItemSelec
   const [mapReady, setMapReady] = useState(false);
   const [resolvedCount, setResolvedCount] = useState(0);
 
-  const mapItems = useMemo(
-    () =>
-      items.filter((item, index, allItems) => {
-        const key = item.location
-          ? `${item.location.lat},${item.location.lng}`
-          : buildQuery(item);
-        return (
-          allItems.findIndex((candidate) => {
-            const candidateKey = candidate.location
-              ? `${candidate.location.lat},${candidate.location.lng}`
-              : buildQuery(candidate);
-            return candidateKey === key;
-          }) === index
-        );
-      }),
-    [items],
-  );
+  const mapItems = useMemo(() => {
+    const markers: MarkerItem[] = items.flatMap((item) => {
+      if (!item.mapLocations?.length) return [item];
+
+      return item.mapLocations.map((point) => ({
+        ...item,
+        markerName: point.name,
+        parentItem: item,
+        address: point.address ?? item.address,
+        mapQuery: point.mapQuery ?? point.address ?? point.name,
+        mapsUrl: point.mapsUrl,
+        location: point.location,
+      }));
+    });
+
+    return markers.filter((item, index, allItems) => {
+      const key = item.location ? `${item.location.lat},${item.location.lng}` : buildQuery(item);
+      return (
+        allItems.findIndex((candidate) => {
+          const candidateKey = candidate.location
+            ? `${candidate.location.lat},${candidate.location.lng}`
+            : buildQuery(candidate);
+          return candidateKey === key;
+        }) === index
+      );
+    });
+  }, [items]);
 
   useEffect(() => {
     let disposed = false;

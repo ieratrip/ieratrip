@@ -272,6 +272,14 @@ export type MapLocation = {
   lng: number;
 };
 
+export type GuideMapPoint = {
+  name: string;
+  address?: string;
+  mapQuery?: string;
+  mapsUrl?: string;
+  location: MapLocation;
+};
+
 export type GuideItem = {
   name: string;
   hours?: string;
@@ -284,6 +292,7 @@ export type GuideItem = {
   mapQuery?: string;
   mapsUrl?: string;
   location?: MapLocation;
+  mapLocations?: GuideMapPoint[];
 };
 
 export type GuideGroup = {
@@ -423,6 +432,9 @@ const guideLocations: Record<string, MapLocation> = {
   "θαλασσια σπορ": { lat: 35.008469, lng: 25.753362 },
   ποδηλασία: { lat: 35.010480, lng: 25.742383 },
   "takis shelter": { lat: 35.042244, lng: 25.725293 },
+  γιαννακος: { lat: 35.050478, lng: 25.676823 },
+  θρυπτή: { lat: 35.091260, lng: 25.863393 },
+  ναυμαχία: { lat: 35.006190, lng: 25.733103 },
 
 };
 
@@ -437,6 +449,7 @@ const guideDetails: Record<
     mapQuery?: string;
     mapsUrl?: string;
     location?: MapLocation;
+    mapLocations?: GuideMapPoint[];
   }
 > = {
   waikiki: {
@@ -991,6 +1004,33 @@ const guideDetails: Record<
     description:
       "Some useful phone numbers for your holidays in Ierapetra: Ierapetra Port Authority: 2842089996. Municipality of Ierapetra: 2842340300. Ierapetra Police Station: 2842090160. Ierapetra Fire Service: 2842020960. Ierapetra General Hospital: 2842340222.",
     image: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?w=1200&q=80",
+    mapLocations: [
+      {
+        name: "Ierapetra Port Authority",
+        address: "Ierapetra Port Authority",
+        location: { lat: 35.006803, lng: 25.738889 },
+      },
+      {
+        name: "Municipality of Ierapetra",
+        address: "Ierapetra Town Hall, Dimokratias 31",
+        location: { lat: 35.008159, lng: 25.737704 },
+      },
+      {
+        name: "Ierapetra Police Station",
+        address: "M. Kothri 5, Ierapetra",
+        location: { lat: 35.008364, lng: 25.739572 },
+      },
+      {
+        name: "Ierapetra Fire Service",
+        address: "Kentri, Ierapetra",
+        location: { lat: 35.027627, lng: 25.751641 },
+      },
+      {
+        name: "Ierapetra General Hospital",
+        address: "Ierapetra General Hospital",
+        location: { lat: 35.013354, lng: 25.741952 },
+      },
+    ],
   },
   μύρτος: {
     title: "Myrtos",
@@ -1565,6 +1605,7 @@ function createGuideItems(
         guideDetails[name]?.mapsUrl ??
         `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapQuery)}`,
       location: guideDetails[name]?.location ?? guideLocations[name],
+      mapLocations: guideDetails[name]?.mapLocations,
     };
   });
 }

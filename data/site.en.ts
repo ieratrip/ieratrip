@@ -48,7 +48,7 @@ export const destinations = [
     description:
       "A quiet village with dark pebbles, a relaxed pace and one of the most beloved beaches on the south coast of Crete.",
     image: "/images/μυρτος 2.jpg",
-    images: ["/images/μυρτος 2.jpg", "/images/μυρτος 3.jpg"],
+    images: ["/images/μυρτος 1.jpg","/images/μυρτος 2.jpg", "/images/μυρτος 3.jpg"],
   },
   {
     name: "Sarakina Gorge",

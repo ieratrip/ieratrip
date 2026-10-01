@@ -48,7 +48,7 @@ export const destinations = [
     description:
       "Ήσυχο χωριό με σκούρα βότσαλα, χαλαρό ρυθμό και μια από τις πιο αγαπημένες παραλίες της νότιας Κρήτης.",
     image: "/images/μυρτος 2.jpg",
-    images: ["/images/μυρτος 2.jpg", "/images/μυρτος 3.jpg"],
+    images: ["/images/μυρτος 1.jpg","/images/μυρτος 2.jpg", "/images/μυρτος 3.jpg"],
   },
   {
     name: "Φαράγγι Σαρακήνας",

@@ -1437,6 +1437,27 @@ img {
     min-height: clamp(180px, 34dvh, 260px);
   }
 
+  .guide-modal-slider {
+    bottom: 0.65rem;
+    gap: 0.45rem;
+    padding: 0.28rem 0.42rem;
+    background: rgba(10, 20, 28, 0.42);
+    backdrop-filter: blur(6px);
+  }
+
+  .guide-modal-slider button {
+    width: 1.55rem;
+    height: 1.55rem;
+    border-color: rgba(255, 255, 255, 0.24);
+    background: rgba(255, 255, 255, 0.08);
+    font-size: 1rem;
+  }
+
+  .guide-modal-slider span {
+    min-width: 2.35rem;
+    font-size: 0.58rem;
+  }
+
   .destination-card.destination-featured {
     grid-row: auto;
   }

@@ -580,7 +580,7 @@ const guideDetails: Record<
     hours: "9:00–23:00",
     mapQuery: "Pelagos Sea Side Restaurant Ierapetra",
     description:
-      "If you are looking for authentic Cretan flavors accompanied by the waters of the Libyan Sea, then Pelagos is the ideal destination for you. It is a unique experience, a must to complete your journey in Ierapetra.",
+      "With a privileged position in front of the Libyan Sea, Pelagos restaurant presents fine gastronomy through creative seafood choices. The summer atmosphere, carefully curated wine list and impeccable service make it the ultimate spot for a truly special dinner.",
     image: "/images/πελαγος1.jpg",
     images: [
       "/images/πελαγος1.jpg",
@@ -885,7 +885,13 @@ const guideDetails: Record<
     title: "Ierapetra Safari",
     description:
       "The Ierapetra safari offers a thrilling exploration experience in south-eastern Crete. In 4x4 vehicles, visitors travel mountain routes, picturesque villages, olive groves and impressive viewpoints that showcase the magic of Cretan nature. Group drives with self-driven vehicles are available, as well as private guided tours.",
-    image: "/images/δραστηριοτητες.jpg",
+    image: "/images/safari 1.jpg",
+    images: [
+      "/images/safari 1.jpg",
+      "/images/safari 2.jpg",
+      "/images/safari 3.jpg",
+      "/images/safari 4.jpg",
+    ],
   },
   "φαράγγι χα": {
     title: "Ha Gorge",
@@ -898,7 +904,8 @@ const guideDetails: Record<
     title: "Sarakina Gorge",
     description:
       "Sarakina Gorge is one of the most impressive and accessible gorges in Crete, ideal for those who love nature and gentle adventure. With narrow passages, rocky formations, running water and small waterfalls, it offers a cool and enchanting route through a lush landscape. The trail is relatively easy, making it suitable for families as well.",
-    image: "/images/ΦΑΡΑΓΓΙ ΣΑΡΑΚΙΝΑΣ.jpg",
+    image: "/images/φαραγγι σαρακινας 2.jpg",
+    images: ["/images/φαραγγι σαρακινας 1.jpg", "/images/φαραγγι σαρακινας 2.jpg"],
   },
   "καταράκτης μυλωνά": {
     title: "Mylonas Waterfall",
@@ -915,15 +922,19 @@ const guideDetails: Record<
     title: "Cycling",
     description:
       "Cycling in Ierapetra is a wonderful way to discover the natural and cultural landscape of the area. Routes pass through coastal roads, olive groves and picturesque villages, with constant changes of scenery between the sea and the Cretan highlands. For bike rentals, check out Yiotis Car & Bike Rentals.",
-    image:
-      "https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?w=1200&q=80",
+    image: "/images/ποδηλασια 1.jpg",
   },
   κατάδυση: {
     title: "Diving",
     description:
       "Diving in Ierapetra offers a magical experience in the Libyan Sea. Divers can explore colourful seabeds, caves, rocks and schools of fish. The area has organised diving centres with beginner lessons as well as more demanding routes for experienced divers, including Ierapetra Diving Centre.",
-    image:
-      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1200&q=80",
+    image: "/images/καταδυση 1.jpg",
+    images: [
+      "/images/καταδυση 1.jpg",
+      "/images/καταδυση 2.jpg",
+      "/images/καταδυση 3.jpg",
+      "/images/καταδυση 4.jpg",
+    ],
   },
   "φαράγγι παναγιά-αναρρίχηση": {
     title: "Panagia Gorge – Climbing",
@@ -1010,8 +1021,7 @@ const guideDetails: Record<
     title: "Peristera Beach",
     description:
       "Peristera beach in Ierapetra is quiet, secluded and particularly natural, with fine sand and low visitor numbers. The landscape is open and free of organised facilities, and in the more remote sections naturism is common, as the beach offers complete privacy and tranquillity.",
-    image:
-      "https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?w=1200&q=80",
+    image: "/images/παραλια περιστερας 1.jpg",
   },
   "paralia livadi": {
     title: "Livadi Beach",

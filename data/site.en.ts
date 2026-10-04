@@ -165,8 +165,8 @@ export const travelInfo = [
 ];
 
 export const contactDetails = {
-  phone: "+30 28420 22000",
-  email: "ieratrip@gmail.gr",
+  phone: "+30 690 6063706",
+  email: "ieratrip@gmail.com",
   address: "Ierapetra Waterfront, Crete 722 00",
   mapsUrl: "https://maps.google.com/?q=Ierapetra+Crete",
 };
@@ -208,6 +208,7 @@ export const ui = {
       phone: "Phone",
       address: "Address",
       priceRange: "Price range",
+      website: "Website",
     },
   },
   experiences: {
@@ -286,6 +287,7 @@ export type GuideItem = {
   phone?: string;
   address?: string;
   priceRange?: string;
+  website?: string;
   description?: string;
   image?: string;
   images?: string[];
@@ -318,6 +320,7 @@ const guideLocations: Record<string, MapLocation> = {
   chocolicious: { lat: 35.0063, lng: 25.7386 },
   kermen: { lat: 35.0045, lng: 25.7374 },
   boheme: { lat: 35.0092, lng: 25.7400 },
+  yamam: { lat: 35.011314, lng: 25.718191 },
   langolo: { lat: 35.0084, lng: 25.7400 },
   kale: { lat: 35.0042, lng: 25.7361 },
   searoco: { lat: 35.0050, lng: 25.7375 },
@@ -327,6 +330,7 @@ const guideLocations: Record<string, MapLocation> = {
   scisiliana: { lat: 35.0098, lng: 25.7426 },
   pelagos: { lat: 35.0109, lng: 25.8375 },
   plori: { lat: 35.0085, lng: 25.7537 },
+  thalassa: { lat: 35.000293, lng: 25.802534 },
   napoleon: { lat: 35.0060, lng: 25.7384 },
   gorgona: { lat: 35.0064, lng: 25.7387 },
   levante: { lat: 35.0055, lng: 25.7380 },
@@ -353,6 +357,8 @@ const guideLocations: Record<string, MapLocation> = {
   balantinis: { lat: 35.0117, lng: 25.7413 },
   mihelaros: { lat: 35.0112, lng: 25.7481 },
   panino: { lat: 35.0079, lng: 25.7390 },
+  "90 moires": { lat: 35.007344, lng: 25.735052 },
+  "lab koutsonari": { lat: 35.009649, lng: 25.826138 },
   "paralia ierapetras": { lat: 35.0100, lng: 25.7477 },
   "Άγιος Αντρέας": { lat: 35.0100, lng: 25.7477 },
   "megali paralia": { lat: 35.0070, lng: 25.8259 },
@@ -402,6 +408,7 @@ const guideLocations: Record<string, MapLocation> = {
   "διαδρομές ΚΤΕΛ": { lat: 35.012649, lng: 25.741645 },
   ΤΑΞΙ: { lat: 35.008102, lng: 25.738923 },
   "ενικοίαση αυτοκινήτων": { lat: 35.009989, lng: 25.751509 },
+  "radio lasithi": { lat: 35.013136, lng: 25.739390 },
   massati: { lat: 35.007422, lng: 25.739195 },
   kleio: { lat: 35.006284, lng: 25.760524 },
   koumpares: { lat: 35.008992, lng: 25.739665 },
@@ -443,6 +450,8 @@ const guideDetails: Record<
   {
     title?: string;
     hours?: string;
+    priceRange?: string;
+    website?: string;
     description?: string;
     image?: string;
     images?: string[];
@@ -500,6 +509,24 @@ const guideDetails: Record<
     description:
       "A modern space in the heart of the city, next to the historic cannons and the iconic square statue.",
   },
+  yamam: {
+    title: "Yamam",
+    hours: "Mon-Sat 5:30-16:00 • Sunday closed",
+    mapQuery: "Yamam 1st km Gra Lygia Ierapetra",
+    description:
+      "Yamam is an ideal family choice in Ierapetra and a perfect stop to start the day with a rich, delicious breakfast. It combines relaxation for parents with a well-organised, safe play area, while also being a top option for memorable children's parties and birthdays. It is a welcoming place where flavour meets endless play.",
+    image: "/images/yamam 1.jpg",
+    images: [
+      "/images/yamam 1.jpg",
+      "/images/yamam 2.jpg",
+      "/images/yamam 3.jpg",
+      "/images/yamam 4.jpg",
+      "/images/yamam 5.jpg",
+      "/images/yamam 6.jpg",
+      "/images/yamam 7.jpg",
+      "/images/yamam 8.jpg",
+    ],
+  },
   langolo: {
     title: "Langolo",
     hours: "13:00–23:30 • Monday closed",
@@ -551,8 +578,22 @@ const guideDetails: Record<
   pelagos: {
     title: "Pelagos",
     hours: "9:00–23:00",
+    mapQuery: "Pelagos Sea Side Restaurant Ierapetra",
     description:
-      "Authentic Cretan flavours beside the Libyan Sea — an experience that perfectly fits an Ierapetra summer.",
+      "If you are looking for authentic Cretan flavors accompanied by the waters of the Libyan Sea, then Pelagos is the ideal destination for you. It is a unique experience, a must to complete your journey in Ierapetra.",
+    image: "/images/πελαγος1.jpg",
+    images: [
+      "/images/πελαγος1.jpg",
+      "/images/πελαγος2.jpg",
+      "/images/πελαγος3.jpg",
+      "/images/πελαγος4.jpg",
+      "/images/πελαγος5.jpg",
+      "/images/πελαγος6.jpg",
+      "/images/πελαγος7.jpg",
+      "/images/πελαγος8.jpg",
+      "/images/πελαγος9.jpg",
+      "/images/πελαγοσ10.jpg",
+    ],
   },
   plori: {
     title: "Plori",
@@ -565,6 +606,29 @@ const guideDetails: Record<
     hours: "12:00–23:00",
     description:
       "Home-cooked food, a friendly atmosphere and a laid-back vibe for those seeking something simple and genuine.",
+  },
+  thalassa: {
+    title: "Thalassa",
+    hours:
+      "Mon 18:00-23:00 • Tuesday closed • Wed-Thu 18:00-23:00 • Fri 6:00-24:00 • Sat 18:00-24:00 • Sunday closed",
+    priceRange: "20-30 € per person",
+    mapQuery: "Thalassa sea side bar restaurant Katharades Ierapetra",
+    description:
+      "Thalassa offers an exceptional dining experience right by the water, with an unobstructed view of the endless blue of the Libyan Sea. It is known for very fresh seafood and Mediterranean flavours, perfectly paired with imaginative, refreshing cocktails. It is a landmark for entertainment in Ierapetra, with special events and music nights that bring together seaside relaxation and the city's lively pulse.",
+    image: "/images/θαλασσα1.jpg",
+    images: [
+      "/images/θαλασσα1.jpg",
+      "/images/θαλασσα2.jpg",
+      "/images/θαλασσα3.jpg",
+      "/images/θαλασσα4.jpg",
+      "/images/θαλασσα5.jpg",
+      "/images/θαλασσα6.jpg",
+      "/images/θαλασσα7.JPG",
+      "/images/θαλασσα8.JPG",
+      "/images/θαλασσα9.JPG",
+      "/images/θαλασσα10.JPG",
+      "/images/θαλασσα11.jpg",
+    ],
   },
   koumpares: {
     title: "Koumpares",
@@ -786,6 +850,24 @@ const guideDetails: Record<
     hours: "6:00–22:00 • Weekends 4:00–22:00",
     description:
       "An easy solution for a sandwich or breakfast, even after a night out.",
+  },
+  "90 moires": {
+    title: "90°",
+    hours: "Mon-Sat 6:00-21:00 • Sunday 6:00-14:00",
+    mapQuery: "90 Moires Coffee Co. Ethnikis Antistaseos 56 Ierapetra",
+    description:
+      "90 Moires is a favourite everyday stop in Ierapetra for excellent coffee and fresh, tempting snacks. With quick, friendly service and a focus on quality, it is the ideal place to fuel up before exploring the city's sights or heading out to the surrounding beaches.",
+    image: "/images/90_1.jpg",
+    images: ["/images/90_1.jpg", "/images/90_2.jpg", "/images/90_3.jpg", "/images/90_4.jpg"],
+  },
+  "lab koutsonari": {
+    title: "Lab",
+    hours: "Mon-Sat 6:00-19:00 • Sunday 6:00-14:00",
+    mapQuery: "Lab Coffee & snack Koutsounari Ierapetra",
+    description:
+      "Lab in Koutsounari is an everyday destination for excellent takeaway coffee, serving the wider area quickly and with quality. It is a practical stop to pick up your favourite drink and fresh snacks before heading to the village's long beach or exploring the area around Ierapetra.",
+    image: "/images/lab 1.jpg",
+    images: ["/images/lab 1.jpg", "/images/lab 2.jpg"],
   },
   κοκοσ: {
     title: "Kokos",
@@ -1519,6 +1601,15 @@ const guideDetails: Record<
     image:
       "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&q=80",
   },
+  "radio lasithi": {
+    title: "Radio Lasithi 92.3",
+    website: "https://radiolasithi.gr/",
+    mapQuery: "Radio Lasithi 92.3 Kalimeraki Ierapetra",
+    description:
+      "Radio Lasithi is the area's most popular radio station, ideal for getting immediately into the local rhythm. At the same time, it works as a modern information platform and a trusted source for news, events and everyday life in the city. It is a great way to stay tuned to life in Ierapetra and the whole prefecture, both musically and informationally.",
+    image: "/images/ΡΑΔΙΟ ΛΑΣΙΘΙ 1.png",
+    images: ["/images/ΡΑΔΙΟ ΛΑΣΙΘΙ 1.png", "/images/ΡΑΔΙΟ ΛΑΣΙΘΙ 2.jpg"],
+  },
 };
 
 const shopContactDetails: Record<string, { phone?: string; address?: string }> = {
@@ -1547,6 +1638,7 @@ const shopContactDetails: Record<string, { phone?: string; address?: string }> =
   "koutouzos": { phone: "2842062053", address: "Vainia" },
   "kouros": { phone: "2842021092", address: "Filotheou A 21" },
   "langolo": { phone: "2842024375", address: "Stratigou Samouel 32" },
+  "lab koutsonari": { phone: "2842500070", address: "Koutsounari" },
   "levante": { phone: "2842023155", address: "Ntam Ntam" },
   "madam meze": { phone: "2842022226", address: "Lakerda 6" },
   "mama's": { phone: "2842023404", address: "Kyprou 25" },
@@ -1561,6 +1653,7 @@ const shopContactDetails: Record<string, { phone?: string; address?: string }> =
   "pick up": { phone: "2842400613", address: "Dimokratias 8" },
   "plaz": { phone: "2842023204", address: "Georgiou Giannakis 2" },
   "plori": { phone: "2842025300", address: "Stratigou Samouel 14" },
+  "radio lasithi": { phone: "2842089216", address: "Kalimeraki" },
   "scisiliana": { phone: "2842021040", address: "Mylonogiannis 31" },
   "searoco": { phone: "2842020730", address: "Stratigou Samouel 24" },
   "signiorino": { phone: "2842025070", address: "Stratigou Samouel 22" },
@@ -1577,6 +1670,9 @@ const shopContactDetails: Record<string, { phone?: string; address?: string }> =
   "γιαννακος": { phone: "2842027554" },
   "κοκοσ": { phone: "6976859133", address: "Stratigou Samouel 76" },
   "ψαροπούλα": { phone: "6977500272" },
+  "90 moires": { phone: "2842020090", address: "Eth. Antistaseos 56" },
+  "thalassa": { phone: "2842025711", address: "Katharades" },
+  "yamam": { phone: "2842026070", address: "1st km, Gra Lygia" },
 };
 
 function createGuideItems(
@@ -1594,7 +1690,8 @@ function createGuideItems(
       hours: guideDetails[name]?.hours,
       phone: shopContactDetails[name]?.phone,
       address,
-      priceRange: options?.priceRange,
+      priceRange: guideDetails[name]?.priceRange ?? options?.priceRange,
+      website: guideDetails[name]?.website,
       description:
         guideDetails[name]?.description ??
         `A recommendation for ${fallbackTag} in Ierapetra, ideal for quick planning and easy discovery of the area.`,
@@ -1622,6 +1719,7 @@ export const guideCategories: GuideCategory[] = [
         title: "Cafés",
         items: createGuideItems(
           [
+            "yamam",
             "waikiki",
             "plaz",
             "απεριττον",
@@ -1639,6 +1737,8 @@ export const guideCategories: GuideCategory[] = [
         title: "Restaurants",
         items: createGuideItems(
           [
+            "thalassa",
+            "pelagos",
             "langolo",
             "kale",
             "searoco",
@@ -1647,7 +1747,6 @@ export const guideCategories: GuideCategory[] = [
             "zorbas",
             "scisiliana",
             "massati",
-            "pelagos",
             "plori",
             "kleio",
           ],
@@ -1703,7 +1802,7 @@ export const guideCategories: GuideCategory[] = [
       {
         title: "Take Away",
         items: createGuideItems(
-          ["gspot", "elephant", "pick up", "cup café", "balantinis", "mihelaros", "panino"],
+          ["90 moires", "lab koutsonari", "gspot", "elephant", "pick up", "cup café", "balantinis", "mihelaros", "panino"],
           "take away",
           { priceRange: "1–5 per person" },
         ),
@@ -1838,6 +1937,10 @@ export const guideCategories: GuideCategory[] = [
       "Practical options for health, shopping, beauty, fitness and getting around in and around the city.",
     image: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?w=1200&q=80",
     groups: [
+      {
+        title: "Information",
+        items: createGuideItems(["radio lasithi"], "information"),
+      },
       {
         title: "Useful Phone Numbers",
         items: createGuideItems(["χρήσιμα τηλέφωνα"], "services"),

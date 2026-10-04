@@ -165,8 +165,8 @@ export const travelInfo = [
 ];
 
 export const contactDetails = {
-  phone: "+30 28420 22000",
-  email: "ieratrip@gmail.gr",
+  phone: "+30 690 6063706",
+  email: "ieratrip@gmail.com",
   address: "Παραλιακή Ιεράπετρας, Κρήτη 722 00",
   mapsUrl: "https://maps.google.com/?q=Ιεράπετρα+Κρήτη",
 };
@@ -208,6 +208,7 @@ export const ui = {
       phone: "Τηλέφωνο",
       address: "Διεύθυνση",
       priceRange: "Εύρος τιμών",
+      website: "Website",
     },
   },
   experiences: {
@@ -286,6 +287,7 @@ export type GuideItem = {
   phone?: string;
   address?: string;
   priceRange?: string;
+  website?: string;
   description?: string;
   image?: string;
   images?: string[];
@@ -318,6 +320,7 @@ const guideLocations: Record<string, MapLocation> = {
   chocolicious: { lat: 35.0063, lng: 25.7386 },
   kermen: { lat: 35.0045, lng: 25.7374 },
   boheme: { lat: 35.0092, lng: 25.7400 },
+  yamam: { lat: 35.011314, lng: 25.718191 },
   langolo: { lat: 35.0084, lng: 25.7400 },
   kale: { lat: 35.0042, lng: 25.7361 },
   searoco: { lat: 35.0050, lng: 25.7375 },
@@ -327,6 +330,7 @@ const guideLocations: Record<string, MapLocation> = {
   scisiliana: { lat: 35.0098, lng: 25.7426 },
   pelagos: { lat: 35.0109, lng: 25.8375 },
   plori: { lat: 35.0085, lng: 25.7537 },
+  thalassa: { lat: 35.000293, lng: 25.802534 },
   napoleon: { lat: 35.0060, lng: 25.7384 },
   gorgona: { lat: 35.0064, lng: 25.7387 },
   levante: { lat: 35.0055, lng: 25.7380 },
@@ -353,6 +357,8 @@ const guideLocations: Record<string, MapLocation> = {
   balantinis: { lat: 35.0117, lng: 25.7413 },
   mihelaros: { lat: 35.0112, lng: 25.7481 },
   panino: { lat: 35.0079, lng: 25.7390 },
+  "90 moires": { lat: 35.007344, lng: 25.735052 },
+  "lab koutsonari": { lat: 35.009649, lng: 25.826138 },
   "paralia ierapetras": { lat: 35.0100, lng: 25.7477 },
   "Άγιος Αντρέας": { lat: 35.0100, lng: 25.7477 },
   "megali paralia": { lat: 35.0070, lng: 25.8259 },
@@ -402,6 +408,7 @@ const guideLocations: Record<string, MapLocation> = {
   "διαδρομές ΚΤΕΛ": { lat: 35.012649, lng: 25.741645 },
   ΤΑΞΙ: { lat: 35.008102, lng: 25.738923 },
   "ενικοίαση αυτοκινήτων": { lat: 35.009989, lng: 25.751509 },
+  "radio lasithi": { lat: 35.013136, lng: 25.739390 },
   massati: { lat: 35.007422, lng: 25.739195 },
   kleio: { lat: 35.006284, lng: 25.760524 },
   koumpares: { lat: 35.008992, lng: 25.739665 },
@@ -443,6 +450,8 @@ const guideDetails: Record<
   {
     title?: string;
     hours?: string;
+    priceRange?: string;
+    website?: string;
     description?: string;
     image?: string;
     images?: string[];
@@ -500,6 +509,24 @@ const guideDetails: Record<
     description:
       "Μοντέρνος χώρος στην καρδιά της πόλης, δίπλα στα ιστορικά κανόνια και στο εμβληματικό άγαλμα της πλατείας.",
   },
+  yamam: {
+    title: "Yamam",
+    hours: "Δευ-Σαβ 5:30-16:00 • Κυριακή κλειστό",
+    mapQuery: "Yamam 1ο χλμ. Γρα Λυγιά Ιεράπετρα",
+    description:
+      "Το Yamam αποτελεί την απόλυτη οικογενειακή επιλογή στην Ιεράπετρα και την ιδανική στάση για να ξεκινήσετε τη μέρα σας απολαμβάνοντας ένα πλούσιο, λαχταριστό πρωινό. Συνδυάζει τη χαλάρωση των γονιών με έναν άρτια οργανωμένο και ασφαλή παιδότοπο, αποτελώντας ταυτόχρονα κορυφαίο προορισμό για τη διοργάνωση αξέχαστων παιδικών πάρτι και γενεθλίων. Είναι ένας φιλόξενος χώρος όπου η γευστική απόλαυση συναντά το ατέλειωτο παιδικό παιχνίδι.",
+    image: "/images/yamam 1.jpg",
+    images: [
+      "/images/yamam 1.jpg",
+      "/images/yamam 2.jpg",
+      "/images/yamam 3.jpg",
+      "/images/yamam 4.jpg",
+      "/images/yamam 5.jpg",
+      "/images/yamam 6.jpg",
+      "/images/yamam 7.jpg",
+      "/images/yamam 8.jpg",
+    ],
+  },
   langolo: {
     title: "Langolo",
     hours: "13:00-23:30 • Δευτέρα κλειστό",
@@ -549,10 +576,24 @@ const guideDetails: Record<
       "Μοντέρνος χώρος με δημιουργική κουζίνα, ιδανικός για μια πιο ιδιαίτερη γαστρονομική εμπειρία.",
   },
   pelagos: {
-    title: "Pelagos",
+    title: "Πέλαγος",
     hours: "9:00-23:00",
+    mapQuery: "Pelagos Sea Side Restaurant Ιεράπετρα",
     description:
-      "Αυθεντικές κρητικές γεύσεις δίπλα στο Λιβυκό, σε μια εμπειρία που δένει τέλεια με το καλοκαίρι της Ιεράπετρας.",
+      "Αν αναζητάτε αυθεντικές κρητικές γεύσεις με συνοδεία τα νερά του Λιβυκού Πελάγους, τότε το Pelagos είναι ο ιδανικός προορισμός για εσάς. Πρόκειται για μια μοναδική εμπειρία, απαραίτητη για να ολοκληρώσετε το ταξίδι σας στην Ιεράπετρα.",
+    image: "/images/πελαγος1.jpg",
+    images: [
+      "/images/πελαγος1.jpg",
+      "/images/πελαγος2.jpg",
+      "/images/πελαγος3.jpg",
+      "/images/πελαγος4.jpg",
+      "/images/πελαγος5.jpg",
+      "/images/πελαγος6.jpg",
+      "/images/πελαγος7.jpg",
+      "/images/πελαγος8.jpg",
+      "/images/πελαγος9.jpg",
+      "/images/πελαγοσ10.jpg",
+    ],
   },
   plori: {
     title: "Plori",
@@ -565,6 +606,29 @@ const guideDetails: Record<
     hours: "12:00-23:00",
     description:
       "Σπιτικό φαγητό, φιλικό κλίμα και χαλαρή ατμόσφαιρα για όσους αναζητούν κάτι απλό και αυθεντικό.",
+  },
+  thalassa: {
+    title: "Θάλασσα",
+    hours:
+      "Δευ 18:00-23:00 • Τρίτη κλειστό • Τετ-Πεμ 18:00-23:00 • Παρ 6:00-24:00 • Σαβ 18:00-24:00 • Κυριακή κλειστό",
+    priceRange: "20-30 € ανά άτομο",
+    mapQuery: "Thalassa sea side bar restaurant Καθαράδες Ιεράπετρα",
+    description:
+      "Το «Θάλασσα» προσφέρει μια εξαιρετική γαστρονομική εμπειρία ακριβώς πάνω στο κύμα, με ανεμπόδιστη θέα στο απέραντο γαλάζιο του Λιβυκού πελάγους. Φημίζεται για τα ολόφρεσκα θαλασσινά και τις μεσογειακές του γεύσεις, τα οποία συνοδεύονται τέλεια με τα ευφάνταστα, δροσερά cocktails του. Αποτελεί σημείο αναφοράς για διασκέδαση στην Ιεράπετρα, με ξεχωριστά events και μουσικές βραδιές που συνδυάζουν χαλάρωση πλάι στο κύμα με τον ζωντανό παλμό της πόλης.",
+    image: "/images/θαλασσα1.jpg",
+    images: [
+      "/images/θαλασσα1.jpg",
+      "/images/θαλασσα2.jpg",
+      "/images/θαλασσα3.jpg",
+      "/images/θαλασσα4.jpg",
+      "/images/θαλασσα5.jpg",
+      "/images/θαλασσα6.jpg",
+      "/images/θαλασσα7.JPG",
+      "/images/θαλασσα8.JPG",
+      "/images/θαλασσα9.JPG",
+      "/images/θαλασσα10.JPG",
+      "/images/θαλασσα11.jpg",
+    ],
   },
   koumpares: {
     title: "Κουμπάρες",
@@ -786,6 +850,24 @@ const guideDetails: Record<
     hours: "6:00-22:00 • ΣΚ 4:00-22:00",
     description:
       "Εύκολη λύση για σάντουιτς ή πρωινό, ακόμη και μετά από βραδινή έξοδο.",
+  },
+  "90 moires": {
+    title: "90°",
+    hours: "Δευ-Σαβ 6:00-21:00 • Κυριακή 6:00-14:00",
+    mapQuery: "90 Moires Coffee Co. Εθνικής Αντιστάσεως 56 Ιεράπετρα",
+    description:
+      "Το 90 Μοίρες είναι η αγαπημένη καθημερινή στάση στην Ιεράπετρα για εξαιρετικό καφέ και λαχταριστά, ολόφρεσκα σνακ. Με άμεση, φιλική εξυπηρέτηση και έμφαση στην ποιότητα, αποτελεί το ιδανικό σημείο για να εφοδιαστείτε με ενέργεια πριν ξεκινήσετε την περιήγησή σας στα αξιοθέατα της πόλης ή τις εξορμήσεις σας στις γύρω παραλίες.",
+    image: "/images/90_1.jpg",
+    images: ["/images/90_1.jpg", "/images/90_2.jpg", "/images/90_3.jpg", "/images/90_4.jpg"],
+  },
+  "lab koutsonari": {
+    title: "Lab",
+    hours: "Δευ-Σαβ 6:00-19:00 • Κυριακή 6:00-14:00",
+    mapQuery: "Lab Coffee & snack Κουτσουνάρι Ιεράπετρα",
+    description:
+      "Το Lab στο Κουτσουνάρι αποτελεί τον απόλυτο καθημερινό προορισμό για εξαιρετικό καφέ στο χέρι, εξυπηρετώντας άμεσα και ποιοτικά ολόκληρη την περιοχή. Είναι το ιδανικό, πρακτικό σημείο για να εφοδιαστείτε με ενέργεια, παίρνοντας το αγαπημένο σας ρόφημα και λαχταριστά σνακ, πριν κατευθυνθείτε για μπάνιο στη μεγάλη παραλία του οικισμού ή για τις εξερευνήσεις σας γύρω από την Ιεράπετρα.",
+    image: "/images/lab 1.jpg",
+    images: ["/images/lab 1.jpg", "/images/lab 2.jpg"],
   },
   κοκοσ: {
     title: "Κόκος",
@@ -1519,6 +1601,15 @@ const guideDetails: Record<
     image:
       "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&q=80",
   },
+  "radio lasithi": {
+    title: "Ράδιο Λασίθι 92,3",
+    website: "https://radiolasithi.gr/",
+    mapQuery: "Ράδιο Λασίθι 92.3 Καλημεράκι Ιεράπετρα",
+    description:
+      "Το Ράδιο Λασίθι είναι ο πιο δημοφιλής ραδιοφωνικός σταθμός της περιοχής, ιδανικός για να σας βάλει αμέσως στον τοπικό παλμό. Λειτουργώντας παράλληλα ως μια σύγχρονη ενημερωτική πλατφόρμα, αποτελεί αξιόπιστη πηγή για τα νέα, τις εκδηλώσεις και την καθημερινότητα της πόλης. Είναι ένας εξαιρετικός τρόπος για να μείνετε συντονισμένοι με τη ζωή της Ιεράπετρας και ολόκληρου του νομού, τόσο μουσικά όσο και ενημερωτικά.",
+    image: "/images/ΡΑΔΙΟ ΛΑΣΙΘΙ 1.png",
+    images: ["/images/ΡΑΔΙΟ ΛΑΣΙΘΙ 1.png", "/images/ΡΑΔΙΟ ΛΑΣΙΘΙ 2.jpg"],
+  },
 };
 
 const shopContactDetails: Record<string, { phone?: string; address?: string }> = {
@@ -1547,6 +1638,7 @@ const shopContactDetails: Record<string, { phone?: string; address?: string }> =
   "koutouzos": { phone: "2842062053", address: "Βαινια" },
   "kouros": { phone: "2842021092", address: "Φιλοθεου Α 21" },
   "langolo": { phone: "2842024375", address: "Στρατηγου Σαμουηλ 32" },
+  "lab koutsonari": { phone: "2842500070", address: "Κουτσουνάρι" },
   "levante": { phone: "2842023155", address: "Νταμ Νταμ" },
   "madam meze": { phone: "2842022226", address: "Λακερδα 6" },
   "mama's": { phone: "2842023404", address: "Κυπρου 25" },
@@ -1561,6 +1653,7 @@ const shopContactDetails: Record<string, { phone?: string; address?: string }> =
   "pick up": { phone: "2842400613", address: "Δημοκρατιας 8" },
   "plaz": { phone: "2842023204", address: "Γεωρ. Γιαννακου 2" },
   "plori": { phone: "2842025300", address: "Στρατηγου Σαμουηλ 14" },
+  "radio lasithi": { phone: "2842089216", address: "Καλημεράκι" },
   "scisiliana": { phone: "2842021040", address: "Μυλωνογιάννη 31" },
   "searoco": { phone: "2842020730", address: "Στρατηγου Σαμουηλ 24" },
   "signiorino": { phone: "2842025070", address: "Στρατηγου Σαμουηλ 22" },
@@ -1577,6 +1670,9 @@ const shopContactDetails: Record<string, { phone?: string; address?: string }> =
   "γιαννακος": { phone: "2842027554" },
   "κοκοσ": { phone: "6976859133", address: "Στρατηγου Σαμουηλ 76" },
   "ψαροπούλα": { phone: "6977500272" },
+  "90 moires": { phone: "2842020090", address: "Εθν. Αντιστάσεως 56" },
+  "thalassa": { phone: "2842025711", address: "Καθαράδες" },
+  "yamam": { phone: "2842026070", address: "1ο χλμ., Γρα Λυγιά" },
 };
 
 function createGuideItems(
@@ -1594,7 +1690,8 @@ function createGuideItems(
       hours: guideDetails[name]?.hours,
       phone: shopContactDetails[name]?.phone,
       address,
-      priceRange: options?.priceRange,
+      priceRange: guideDetails[name]?.priceRange ?? options?.priceRange,
+      website: guideDetails[name]?.website,
       description:
         guideDetails[name]?.description ??
         `Μια πρόταση για ${fallbackTag} στην Ιεράπετρα, ιδανική για γρήγορη οργάνωση της επίσκεψης και εύκολη ανακάλυψη της περιοχής.`,
@@ -1622,6 +1719,7 @@ export const guideCategories: GuideCategory[] = [
         title: "Καφετέριες",
         items: createGuideItems(
           [
+            "yamam",
             "waikiki",
             "plaz",
             "απεριττον",
@@ -1639,6 +1737,8 @@ export const guideCategories: GuideCategory[] = [
         title: "Εστιατόρια",
         items: createGuideItems(
           [
+            "thalassa",
+            "pelagos",
             "langolo",
             "kale",
             "searoco",
@@ -1647,7 +1747,6 @@ export const guideCategories: GuideCategory[] = [
             "zorbas",
             "scisiliana",
             "massati",
-            "pelagos",
             "plori",
             "kleio",
           ],
@@ -1703,7 +1802,7 @@ export const guideCategories: GuideCategory[] = [
       {
         title: "Take Away",
         items: createGuideItems(
-          ["gspot", "elephant", "pick up", "cup café", "balantinis", "mihelaros", "panino"],
+          ["90 moires", "lab koutsonari", "gspot", "elephant", "pick up", "cup café", "balantinis", "mihelaros", "panino"],
           "take away",
           { priceRange: "1-5 per person" },
         ),
@@ -1838,6 +1937,10 @@ export const guideCategories: GuideCategory[] = [
       "Πρακτικές επιλογές για υγεία, αγορές, περιποίηση, άθληση και μετακινήσεις μέσα και γύρω από την πόλη.",
     image: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?w=1200&q=80",
     groups: [
+      {
+        title: "Ενημέρωση",
+        items: createGuideItems(["radio lasithi"], "ενημέρωση"),
+      },
       {
         title: "Χρήσιμα Τηλέφωνα",
         items: createGuideItems(["χρήσιμα τηλέφωνα"], "υπηρεσίες"),

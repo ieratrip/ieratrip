@@ -34,6 +34,7 @@ type Props = {
       phone: string;
       address: string;
       priceRange: string;
+      website: string;
     };
   };
 };
@@ -300,6 +301,16 @@ export function GuideSection({ guideCategories, ui }: Props) {
                 <div className="guide-modal-info">
                   <span>{ui.fields.priceRange}</span>
                   <strong>{selectedItem.item.priceRange}</strong>
+                </div>
+              ) : null}
+              {selectedItem.item.website ? (
+                <div className="guide-modal-info">
+                  <span>{ui.fields.website}</span>
+                  <strong>
+                    <a href={selectedItem.item.website} target="_blank" rel="noreferrer">
+                      {selectedItem.item.website.replace(/^https?:\/\//, "").replace(/\/$/, "")}
+                    </a>
+                  </strong>
                 </div>
               ) : null}
             </div>

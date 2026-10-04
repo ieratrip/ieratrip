@@ -166,7 +166,7 @@ export const travelInfo = [
 
 export const contactDetails = {
   phone: "+30 690 6063706",
-  email: "ieratrip@gmail.com",
+  email: "ierapetratrip@gmail.com",
   address: "Παραλιακή Ιεράπετρας, Κρήτη 722 00",
   mapsUrl: "https://maps.google.com/?q=Ιεράπετρα+Κρήτη",
 };

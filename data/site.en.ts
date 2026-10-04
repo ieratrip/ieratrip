@@ -166,7 +166,7 @@ export const travelInfo = [
 
 export const contactDetails = {
   phone: "+30 690 6063706",
-  email: "ieratrip@gmail.com",
+  email: "ierapetratrip@gmail.com",
   address: "Ierapetra Waterfront, Crete 722 00",
   mapsUrl: "https://maps.google.com/?q=Ierapetra+Crete",
 };

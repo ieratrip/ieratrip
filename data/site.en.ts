@@ -120,28 +120,28 @@ export const gallery = [
 
 export const experiences = [
   {
-    icon: "⛵",
+    icon: "boat",
     title: "Chrysi – Day trip",
     description:
       "Daily boats from the harbour to Gaidouronisi — snorkelling, cedar forest and absolute serenity.",
     image: "/images/χρυση 1.jpg",
   },
   {
-    icon: "🏰",
+    icon: "history",
     title: "History & archaeology",
     description:
       "The Kales fortress, the old town and traces of Venetian, Ottoman and Roman presence all within short distances.",
     image: "/images/ΚΑΛΕ 3.jpg",
   },
   {
-    icon: "🌿",
+    icon: "olive",
     title: "Rural life",
     description:
       "Greenhouses, olive groves, local markets and producers that give Ierapetra its own distinctive pulse.",
     image: "/images/ελια καβουσι 2.jpg",
   },
   {
-    icon: "🐟",
+    icon: "fish",
     title: "Gastronomy",
     description:
       "Fresh fish at the harbour, aladopites, local olive oil and flavours that stay simple and authentic.",
@@ -355,7 +355,7 @@ const guideLocations: Record<string, MapLocation> = {
   "pick up": { lat: 35.0084, lng: 25.7378 },
   "cup café": { lat: 35.0104, lng: 25.7404 },
   balantinis: { lat: 35.0117, lng: 25.7413 },
-  mihelaros: { lat: 35.0112, lng: 25.7481 },
+  mihelaros: { lat: 35.0111787, lng: 25.7480878 },
   panino: { lat: 35.0079, lng: 25.7390 },
   "90 moires": { lat: 35.007344, lng: 25.735052 },
   "lab koutsonari": { lat: 35.009649, lng: 25.826138 },
@@ -842,8 +842,18 @@ const guideDetails: Record<
   mihelaros: {
     title: "Mihelaros",
     hours: "7:00–21:00",
+    mapQuery: "Mihelaros cafe Psilinaki 44 Ierapetra",
     description:
       "Iced coffee and a strong breakfast to kick off a hot day in Ierapetra the right way.",
+    image: "/images/μιχελαρος1.WEBP",
+    images: [
+      "/images/μιχελαρος1.WEBP",
+      "/images/μιχελαρος2.WEBP",
+      "/images/μιχελαρος3.WEBP",
+      "/images/μιχελαρος4.WEBP",
+      "/images/μιχελαρος5.jpg",
+      "/images/μιχελαρος6.jpg",
+    ],
   },
   panino: {
     title: "Panino",
@@ -1812,7 +1822,7 @@ export const guideCategories: GuideCategory[] = [
       {
         title: "Take Away",
         items: createGuideItems(
-          ["90 moires", "lab koutsonari", "gspot", "elephant", "pick up", "cup café", "balantinis", "mihelaros", "panino"],
+          ["mihelaros", "90 moires", "lab koutsonari", "gspot", "elephant", "pick up", "cup café", "balantinis", "panino"],
           "take away",
           { priceRange: "1–5 per person" },
         ),

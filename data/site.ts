@@ -120,28 +120,28 @@ export const gallery = [
 
 export const experiences = [
   {
-    icon: "⛵",
+    icon: "boat",
     title: "Χρυσή - Ημερήσια εκδρομή",
     description:
       "Καθημερινά πλοιάρια από το λιμάνι για το Γαϊδουρονήσι — snorkeling, κέδρος και απόλυτη ησυχία.",
     image: "/images/χρυση 1.jpg",
   },
   {
-    icon: "🏰",
+    icon: "history",
     title: "Ιστορία & αρχαιολογία",
     description:
       "Φρούριο Κάλες, παλιά πόλη και ίχνη από ενετική, οθωμανική και ρωμαϊκή παρουσία σε μικρές αποστάσεις.",
     image: "/images/ΚΑΛΕ 3.jpg",
   },
   {
-    icon: "🌿",
+    icon: "olive",
     title: "Αγροτική ζωή",
     description:
       "Θερμοκήπια, ελαιώνες, τοπικές αγορές και παραγωγοί που δίνουν στην Ιεράπετρα τον δικό της ξεχωριστό παλμό.",
     image: "/images/ελια καβουσι 2.jpg",
   },
   {
-    icon: "🐟",
+    icon: "fish",
     title: "Γαστρονομία",
     description:
       "Φρέσκο ψάρι στο λιμάνι, αλαδόπιτες, ντόπιο ελαιόλαδο και γεύσεις που μένουν απλές και αυθεντικές.",
@@ -355,7 +355,7 @@ const guideLocations: Record<string, MapLocation> = {
   "pick up": { lat: 35.0084, lng: 25.7378 },
   "cup café": { lat: 35.0104, lng: 25.7404 },
   balantinis: { lat: 35.0117, lng: 25.7413 },
-  mihelaros: { lat: 35.0112, lng: 25.7481 },
+  mihelaros: { lat: 35.0111787, lng: 25.7480878 },
   panino: { lat: 35.0079, lng: 25.7390 },
   "90 moires": { lat: 35.007344, lng: 25.735052 },
   "lab koutsonari": { lat: 35.009649, lng: 25.826138 },
@@ -842,8 +842,18 @@ const guideDetails: Record<
   mihelaros: {
     title: "Μιχελάρος",
     hours: "7:00-21:00",
+    mapQuery: "Μιχελάρος καφέ Ψυλλινάκη 44 Ιεράπετρα",
     description:
       "Κρύος καφές και δυνατό πρωινό για να ξεκινήσεις όπως πρέπει μια ζεστή μέρα στην Ιεράπετρα.",
+    image: "/images/μιχελαρος1.WEBP",
+    images: [
+      "/images/μιχελαρος1.WEBP",
+      "/images/μιχελαρος2.WEBP",
+      "/images/μιχελαρος3.WEBP",
+      "/images/μιχελαρος4.WEBP",
+      "/images/μιχελαρος5.jpg",
+      "/images/μιχελαρος6.jpg",
+    ],
   },
   panino: {
     title: "Panino",
@@ -1654,7 +1664,7 @@ const shopContactDetails: Record<string, { phone?: string; address?: string }> =
   "mama's": { phone: "2842023404", address: "Κυπρου 25" },
   "massati": { phone: "2842022050", address: "Στρατηγου Σαμουηλ 30" },
   "maestro": { phone: "2842023000", address: "Παπαναστασιου 31" },
-  "mihelaros": { phone: "2842110025", address: "ψυλλινακη44" },
+  "mihelaros": { phone: "2842110025", address: "Ψυλλινάκη 44" },
   "mpompos": { phone: "2842021646", address: "Ιεραπετρα" },
   "napoleon": { phone: "2842022225", address: "Στρατηγου Σαμουηλ 20" },
   "odeio": { phone: "2842024102", address: "Λακερδα 14" },
@@ -1812,7 +1822,7 @@ export const guideCategories: GuideCategory[] = [
       {
         title: "Take Away",
         items: createGuideItems(
-          ["90 moires", "lab koutsonari", "gspot", "elephant", "pick up", "cup café", "balantinis", "mihelaros", "panino"],
+          ["mihelaros", "90 moires", "lab koutsonari", "gspot", "elephant", "pick up", "cup café", "balantinis", "panino"],
           "take away",
           { priceRange: "1-5 per person" },
         ),

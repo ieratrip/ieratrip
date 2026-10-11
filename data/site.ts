@@ -182,6 +182,13 @@ export const ui = {
     title: { primary: "Ιεράπετρα", emphasis: "Trip" },
     subtitle: "Όπου το Λιβυκό συναντά τη νοτιότερη πόλη της Ευρώπης",
     cta: "Εξερεύνηση",
+    weather: {
+      label: "Καιρός τώρα",
+      location: "Ιεράπετρα, Κρήτη",
+      loading: "Φόρτωση καιρού",
+      fallback: "Καιρός Ιεράπετρας",
+      wind: "Άνεμος",
+    },
   },
   about: {
     imageAlt: "Μεσογειακό τοπίο της νότιας Κρήτης",
@@ -826,6 +833,16 @@ const guideDetails: Record<
     hours: "6:00-20:00 • Κυρ 7:00-15:00",
     description:
       "Πρωινός καφές και γρήγορη εξυπηρέτηση πριν ξεκινήσεις την εξερεύνηση της Κρήτης.",
+    image: "/images/pickup.jpg",
+    images: [
+      "/images/pickup.jpg",
+      "/images/pickup2.jpg",
+      "/images/pickup3.jpg",
+      "/images/pickup4.jpg",
+      "/images/pickup5.jpg",
+      "/images/pickup6.jpg",
+      "/images/pickup7.jpg",
+    ],
   },
   "cup café": {
     title: "Cup Cafe",
@@ -1822,7 +1839,7 @@ export const guideCategories: GuideCategory[] = [
       {
         title: "Take Away",
         items: createGuideItems(
-          ["mihelaros", "90 moires", "lab koutsonari", "gspot", "elephant", "pick up", "cup café", "balantinis", "panino"],
+          ["pick up", "mihelaros", "90 moires", "lab koutsonari", "gspot", "elephant", "cup café", "balantinis", "panino"],
           "take away",
           { priceRange: "1-5 per person" },
         ),

@@ -182,6 +182,13 @@ export const ui = {
     title: { primary: "Ierapetra", emphasis: "Trip" },
     subtitle: "Where the Libyan Sea meets the southernmost city in Europe",
     cta: "Explore",
+    weather: {
+      label: "Weather now",
+      location: "Ierapetra, Crete",
+      loading: "Loading weather",
+      fallback: "Ierapetra weather",
+      wind: "Wind",
+    },
   },
   about: {
     imageAlt: "Mediterranean landscape of southern Crete",
@@ -826,6 +833,16 @@ const guideDetails: Record<
     hours: "6:00–20:00 • Sun 7:00–15:00",
     description:
       "Morning coffee and fast service before you set off to explore Crete.",
+    image: "/images/pickup.jpg",
+    images: [
+      "/images/pickup.jpg",
+      "/images/pickup2.jpg",
+      "/images/pickup3.jpg",
+      "/images/pickup4.jpg",
+      "/images/pickup5.jpg",
+      "/images/pickup6.jpg",
+      "/images/pickup7.jpg",
+    ],
   },
   "cup café": {
     title: "Cup Cafe",
@@ -1822,7 +1839,7 @@ export const guideCategories: GuideCategory[] = [
       {
         title: "Take Away",
         items: createGuideItems(
-          ["mihelaros", "90 moires", "lab koutsonari", "gspot", "elephant", "pick up", "cup café", "balantinis", "panino"],
+          ["pick up", "mihelaros", "90 moires", "lab koutsonari", "gspot", "elephant", "cup café", "balantinis", "panino"],
           "take away",
           { priceRange: "1–5 per person" },
         ),

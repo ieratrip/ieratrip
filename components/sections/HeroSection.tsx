@@ -32,7 +32,7 @@ const heroSlides = [
   "/images/ΑΡΧΙΚΗ 2.jpg",
   "/images/ΧΡΥΣΗ 3.jpg",
   "/images/μακρυ γιαλλος 2.jpg",
-  "/images/ΚΑΛΕ 1.jpg",
+  "/images/HEROLAST.jpg",
 ];
 
 const weatherLabels: Record<number, { icon: string; el: string; en: string }> = {

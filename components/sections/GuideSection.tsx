@@ -154,6 +154,7 @@ export function GuideSection({ guideCategories, ui }: Props) {
                   categoryId={activeCategory.id}
                   categoryLabel={activeCategory.label}
                   items={activeMapItems}
+                  fields={ui.fields}
                   onItemSelect={openGuideItem}
                 />
               </div>

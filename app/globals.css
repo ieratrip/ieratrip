@@ -874,6 +874,16 @@ img {
   font-size: 0.74rem;
 }
 
+.guide-map-popup-detail {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.guide-map-popup-detail strong,
+.guide-map-popup-detail a {
+  font-size: 0.78rem;
+}
+
 .guide-map-popup a {
   color: var(--terracotta);
   font-weight: 700;
@@ -882,7 +892,7 @@ img {
   text-underline-offset: 0.22em;
 }
 
-.guide-map-popup a::before {
+.guide-map-popup-map-link::before {
   content: "📍 ";
   font-size: 0.82rem;
 }

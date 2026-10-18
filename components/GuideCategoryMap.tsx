@@ -15,6 +15,8 @@ type MapPoint = {
 
 type MapItem = {
   name: string;
+  phone?: string;
+  priceRange?: string;
   address?: string;
   mapQuery?: string;
   mapsUrl?: string;
@@ -31,6 +33,7 @@ type Props = {
   categoryId: string;
   categoryLabel: string;
   items: MapItem[];
+  fields: { phone: string; priceRange: string };
   onItemSelect?: (item: MapItem) => void;
 };
 
@@ -55,8 +58,7 @@ function wait(ms: number) {
 
 function buildQuery(item: MarkerItem) {
   if (item.mapQuery) return item.mapQuery;
-  if (item.address) return `${item.address}, Ιεράπετρα, Κρήτη, Ελλάδα`;
-  return `${item.markerName ?? item.name}, Ιεράπετρα, Κρήτη, Ελλάδα`;
+  return `${item.markerName ?? item.name}${item.address ? `, ${item.address}` : ""}, Ιεράπετρα, Κρήτη, Ελλάδα`;
 }
 
 export function buildMapsUrl(item: MarkerItem) {
@@ -94,7 +96,11 @@ async function geocodeItem(item: MarkerItem, signal: AbortSignal): Promise<Cache
   }
 }
 
-function makePopup(item: MarkerItem, onItemSelect?: (item: MapItem) => void) {
+function makePopup(
+  item: MarkerItem,
+  fields: Props["fields"],
+  onItemSelect?: (item: MapItem) => void,
+) {
   const popup = document.createElement("div");
   popup.className = "guide-map-popup";
 
@@ -111,7 +117,31 @@ function makePopup(item: MarkerItem, onItemSelect?: (item: MapItem) => void) {
     popup.appendChild(address);
   }
 
+  if (item.phone) {
+    const phone = document.createElement("div");
+    phone.className = "guide-map-popup-detail";
+    const label = document.createElement("span");
+    label.textContent = fields.phone;
+    const link = document.createElement("a");
+    link.href = `tel:${item.phone}`;
+    link.textContent = item.phone;
+    phone.append(label, link);
+    popup.appendChild(phone);
+  }
+
+  if (item.priceRange) {
+    const price = document.createElement("div");
+    price.className = "guide-map-popup-detail";
+    const label = document.createElement("span");
+    label.textContent = fields.priceRange;
+    const value = document.createElement("strong");
+    value.textContent = item.priceRange;
+    price.append(label, value);
+    popup.appendChild(price);
+  }
+
   const link = document.createElement("a");
+  link.className = "guide-map-popup-map-link";
   link.href = buildMapsUrl(item);
   link.target = "_blank";
   link.rel = "noreferrer";
@@ -121,7 +151,7 @@ function makePopup(item: MarkerItem, onItemSelect?: (item: MapItem) => void) {
   return popup;
 }
 
-export function GuideCategoryMap({ categoryId, categoryLabel, items, onItemSelect }: Props) {
+export function GuideCategoryMap({ categoryId, categoryLabel, items, fields, onItemSelect }: Props) {
   const mapElementRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<LeafletMap | null>(null);
   const markerLayerRef = useRef<LayerGroup | null>(null);
@@ -137,7 +167,7 @@ export function GuideCategoryMap({ categoryId, categoryLabel, items, onItemSelec
         markerName: point.name,
         parentItem: item,
         address: point.address ?? item.address,
-        mapQuery: point.mapQuery ?? point.address ?? point.name,
+        mapQuery: point.mapQuery ?? `${point.name}${point.address ? `, ${point.address}` : ""}`,
         mapsUrl: point.mapsUrl,
         location: point.location,
       }));
@@ -223,7 +253,7 @@ export function GuideCategoryMap({ categoryId, categoryLabel, items, onItemSelec
         }
 
         const marker = L.marker([location.lat, location.lng], { icon }).bindPopup(
-          makePopup(item, onItemSelect),
+          makePopup(item, fields, onItemSelect),
         );
         marker.addTo(markerLayer);
         bounds.extend([location.lat, location.lng]);
@@ -244,7 +274,7 @@ export function GuideCategoryMap({ categoryId, categoryLabel, items, onItemSelec
       disposed = true;
       controller.abort();
     };
-  }, [categoryId, mapItems, mapReady, onItemSelect]);
+  }, [categoryId, fields, mapItems, mapReady, onItemSelect]);
 
   useEffect(() => {
     return () => {
